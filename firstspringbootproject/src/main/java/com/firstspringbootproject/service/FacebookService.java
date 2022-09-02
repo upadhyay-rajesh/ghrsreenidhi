@@ -37,7 +37,7 @@ public class FacebookService implements FacebookServiceInterface{
 	public int deleteProductService(long l) {
 		// TODO Auto-generated method stub
 		int i=0;
-		fd.deleteById(l);
+		fd.delete(l);
 		i=1;
 		return i;
 	}
@@ -52,11 +52,8 @@ public class FacebookService implements FacebookServiceInterface{
 
 	@Override
 	public Product displayProductService(long l) {
-		Optional<Product> ll=fd.findById(l);
-		Product p=null;
-		if(ll.isPresent()) {
-			p=ll.get();
-		}
+		Product p=fd.findOne(l);
+		
 		return p;
 	}
 
